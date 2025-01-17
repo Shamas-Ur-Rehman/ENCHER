@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encher</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo" id="">ENCHER</div>
+      <nav>
+        <a href="javascript:void(0)" onclick="openModal()">Język / Language</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1 >
+        <span>Witaj</span><br />
+        <span>Na Stronie</span><br />
+        <span>Encher</span>
+      </h1>
+        <p class="p_Hero">
+          Wszystkie projekty zostały stworzone przez Bartosza Świąteckiego (firma Encher)
+        </p>
+      
+      <a href="#projects" class="fancy-btn">ZOBACZ MOJE PROJEKTY</a>
+    </div>
+    <div class="projects" id="projects">
+      <h2>MOJE PROJEKTY</h2>
+      <h3 >
+        [!] Te projekty działają tylko na systemie operacyjnym Windows [!]
+      </h3>
+      <div class="project-container">
+        <div class="project-item">
+          <img src="project1.jpg" alt="Projekt 1" class="project-image" />
+          <div class="project-content">
+            <h3 class="project-title">Język programowania EncherScript</h3>
+            <p class="project-description">
+              EncherScript to język programowania który jest bardzo prosty,
+              wydajny, przyjemny w używaniu oraz zapewnia duże możliwości!
+            </p>
+            <a href="EncherScriptIDE.zip" class="project-btn">Pobierz</a>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="project2.jpg" alt="Projekt 2" class="project-image" />
+          <div class="project-content">
+            <h3 class="project-title">Gra 3d Lasers</h3>
+            <p class="project-description">
+              Gra logiczna która polega na układaniu laserów w odpowiedni sposób
+            </p>
+            <a href="https://encherstudio.itch.io/3dlasers" class="project-btn"
+              >Pobierz</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-content">
+        <p>&copy; Bartosz Świątecki, Encher. Wszystkie prawa zastrzeżone</p>
+      </div>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Wybierz język / Select Language</h2>
+        <button class="language-option" onclick="changeLanguageToPolish()">
+          Polski
+        </button>
+        <button class="language-option" onclick="changeLanguageToEnglish()">
+          English
+        </button>
+      </div>
+    </div>
+    <script>
+      function getCookie(name) {
+        let match = document.cookie.match(
+          new RegExp("(^| )" + name + "=([^;]+)")
+        );
+        if (match) return match[2];
+        return null;
+      }
+      let jezykencherValue = getCookie("jezykencher");
+
+      if (jezykencherValue === "0") {
+        changeLanguageToPolish();
+      } else if (jezykencherValue === "1") {
+        changeLanguageToEnglish();
+      }
+
+      function openModal() {
+        document.getElementById("myModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+      }
+
+      function changeLanguageToPolish() {
+        document.cookie =
+          "jezykencher=0; path=/; expires=" +
+          new Date(9999, 0, 1).toUTCString();
+        document.querySelector(".hero h1 span:nth-of-type(1)").innerText =
+          "Witaj";
+        document.querySelector(".hero h1 span:nth-of-type(2)").innerText =
+          "Na stronie";
+        document.querySelector(".hero h1 span:nth-of-type(3)").innerText =
+          "Encher";
+        document.querySelector(".hero p").innerText =
+          "Wszystkie projekty zostały stworzone przez Bartosza Świąteckiego (firma Encher)";
+        document.querySelector(".hero .fancy-btn").innerText =
+          "ZOBACZ MOJE PROJEKTY";
+        document.querySelector(".projects h2").innerText = "MOJE PROJEKTY";
+        document.querySelector(".projects h3").innerText =
+          "[!] Te projekty działają tylko na systemie operacyjnym Windows [!]";
+        document.querySelector(
+          ".project-item:nth-of-type(1) .project-title"
+        ).innerText = "Język programowania EncherScript";
+        document.querySelector(
+          ".project-item:nth-of-type(1) .project-description"
+        ).innerText =
+          "EncherScript to język programowania który jest bardzo prosty, wydajny, przyjemny w używaniu oraz zapewnia duże możliwości!";
+        document.querySelector(
+          ".project-item:nth-of-type(1) .project-btn"
+        ).innerText = "Pobierz";
+        document.querySelector(
+          ".project-item:nth-of-type(2) .project-title"
+        ).innerText = "Gra 3d Lasers";
+        document.querySelector(
+          ".project-item:nth-of-type(2) .project-description"
+        ).innerText =
+          "Gra logiczna która polega na układaniu laserów w odpowiedni sposób";
+        document.querySelector(
+          ".project-item:nth-of-type(2) .project-btn"
+        ).innerText = "Pobierz";
+        document.querySelector(".footer p").innerHTML =
+          "&copy; Bartosz Świątecki, Encher. Wszystkie prawa zastrzeżone";
+        closeModal();
+      }
+
+      function changeLanguageToEnglish() {
+        document.cookie =
+          "jezykencher=1; path=/; expires=" +
+          new Date(9999, 0, 1).toUTCString();
+        document.querySelector(".hero h1 span:nth-of-type(1)").innerText =
+          "Welcome";
+        document.querySelector(".hero h1 span:nth-of-type(2)").innerText =
+          "On the Website of";
+        document.querySelector(".hero h1 span:nth-of-type(3)").innerText =
+          "Encher";
+        document.querySelector(".hero p").innerText =
+          "All projects were created by Bartosz Świątecki (Encher company)";
+        document.querySelector(".hero .fancy-btn").innerText =
+          "SEE MY PROJECTS";
+        document.querySelector(".projects h2").innerText = "MY PROJECTS";
+        document.querySelector(".projects h3").innerText =
+          "[!] These projects only work on Windows OS [!]";
+        document.querySelector(
+          ".project-item:nth-of-type(1) .project-title"
+        ).innerText = "EncherScript Programming Language";
+        document.querySelector(
+          ".project-item:nth-of-type(1) .project-description"
+        ).innerText =
+          "EncherScript is a programming language that is very simple, efficient, user-friendly, and offers great possibilities!";
+        document.querySelector(
+          ".project-item:nth-of-type(1) .project-btn"
+        ).innerText = "Download";
+        document.querySelector(
+          ".project-item:nth-of-type(2) .project-title"
+        ).innerText = "3dLasers Game";
+        document.querySelector(
+          ".project-item:nth-of-type(2) .project-description"
+        ).innerText =
+          "A logic game where you arrange lasers in the correct way";
+        document.querySelector(
+          ".project-item:nth-of-type(2) .project-btn"
+        ).innerText = "Download";
+        document.querySelector(".footer p").innerHTML =
+          "&copy; Bartosz Świątecki, Encher. All rights reserved";
+        closeModal();
+      }
+    </script>
+  </body>
+</html>
