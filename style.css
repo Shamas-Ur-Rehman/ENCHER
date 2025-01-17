@@ -63,7 +63,7 @@ html {
   .hero {
     height: 100vh;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 85%, #1a1a1a 100%),
-      url("background.gif") no-repeat center center fixed;
+      url("back.gif") no-repeat center center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
